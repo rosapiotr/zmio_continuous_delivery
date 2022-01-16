@@ -6,6 +6,11 @@ def hello_geek():
     response = {"Hello": "World"}
     return response
 
+@app.route('/api/')
+def api_docs():
+    response = {"API": "Test"}
+    return response
+
 
 if __name__ == "__main__":
     app.run(debug=True)
