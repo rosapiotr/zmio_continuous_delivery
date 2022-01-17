@@ -1,15 +1,14 @@
 from flask import Flask
+from service.product_service import ProductService
+
 app = Flask(__name__)
 
-@app.route('/')
-def hello_geek():
-    response = {"Hello": "World"}
-    return response
+product_service = ProductService()
 
-@app.route('/api/')
-def api_docs():
-    response = {"API": "Test"}
-    return response
+@app.route('/product/<id>')
+def get_product(id):
+    response = product_service.get_product(id)
+    return response.to_json()
 
 
 if __name__ == "__main__":
