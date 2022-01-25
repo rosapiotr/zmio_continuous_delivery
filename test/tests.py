@@ -1,5 +1,4 @@
 import pytest
-from wallet import Wallet, InsufficientAmount
 import entity.product
 import repository.product_repository
 import service.product_service
