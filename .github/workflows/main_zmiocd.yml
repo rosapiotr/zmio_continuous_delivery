@@ -31,6 +31,11 @@ jobs:
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+      - name: Test with pytest
+        run: |
+          pip install pytest
+          pip install pytest-cov
+          pytest test/tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
